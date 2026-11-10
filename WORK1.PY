@@ -84,7 +84,7 @@ def main_encoder_math(sample_in_channel):
                 current_sample_table_prediction = past_predicted_sample - step_table[crichur_count]
                 calculated_direction_vector = prediction_machine(current_sample, current_sample_table_prediction)
 
-                write_bit_down_as = 0
+            write_bit_down_as = 0
             past_predicted_sample = current_sample_table_prediction
 
         elif undershooting_center_or_overshooting == 1 and calculated_direction_vector == 0 and crichur_count == 0:
@@ -94,7 +94,7 @@ def main_encoder_math(sample_in_channel):
                 current_sample_table_prediction = past_predicted_sample - step_table[crichur_count]
                 calculated_direction_vector = prediction_machine(current_sample, current_sample_table_prediction)
 
-                write_bit_down_as = 0
+            write_bit_down_as = 0
             past_predicted_sample = current_sample_table_prediction
         
         elif undershooting_center_or_overshooting == 0 and calculated_direction_vector == 1 and crichur_count == 0:
@@ -104,7 +104,7 @@ def main_encoder_math(sample_in_channel):
                 current_sample_table_prediction = past_predicted_sample + step_table[crichur_count]
                 calculated_direction_vector = prediction_machine(current_sample, current_sample_table_prediction)
 
-                write_bit_down_as = 1
+            write_bit_down_as = 1
             past_predicted_sample = current_sample_table_prediction
 
         elif undershooting_center_or_overshooting == None and calculated_direction_vector == 0 and crichur_count == 0:
@@ -114,9 +114,9 @@ def main_encoder_math(sample_in_channel):
                 current_sample_table_prediction = -step_table[crichur_count]
                 calculated_direction_vector = prediction_machine(current_sample, current_sample_table_prediction)
 
-                undershooting_center_or_overshooting = 0
-                write_bit_down_as = 0
-                #WRITE DOWN THIS SAMPLE AS THE PAST ONE PLEASE, MWAH 
+            undershooting_center_or_overshooting = 0
+            write_bit_down_as = 0
+            #WRITE DOWN THIS SAMPLE AS THE PAST ONE PLEASE, MWAH 
             past_predicted_sample = current_sample_table_prediction
 
         elif undershooting_center_or_overshooting == None and calculated_direction_vector == 1 and crichur_count == 0:
@@ -126,9 +126,9 @@ def main_encoder_math(sample_in_channel):
                 current_sample_table_prediction = step_table[crichur_count]
                 calculated_direction_vector = prediction_machine(current_sample, current_sample_table_prediction)
 
-                undershooting_center_or_overshooting = 1
-                write_bit_down_as = 1
-                #WRITE DOWN THIS SAMPLE AS THE PAST ONE PLEASE, MWAH 
+            undershooting_center_or_overshooting = 1
+            write_bit_down_as = 1
+            #WRITE DOWN THIS SAMPLE AS THE PAST ONE PLEASE, MWAH 
             past_predicted_sample = current_sample_table_prediction
         
         else:
